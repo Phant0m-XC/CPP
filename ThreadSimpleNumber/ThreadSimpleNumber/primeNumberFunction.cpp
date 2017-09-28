@@ -2,11 +2,11 @@
 #include <cmath>
 #include "primeNumberFunction.h"
 
-PrimeNumberFinder::PrimeNumberFinder(int serial_number, int start, int end) {
+PrimeNumberFinder::PrimeNumberFinder(unsigned int serial_number, unsigned int start, unsigned int end) {
 	this->serial_number = serial_number;
 	this->start = start;
 	this->end = end;
-	my_prime_numbers = new std::vector<int>();
+	my_prime_numbers = new std::vector<unsigned int>();
 }
 
 PrimeNumberFinder::PrimeNumberFinder(const PrimeNumberFinder &copy_object) {
@@ -14,20 +14,21 @@ PrimeNumberFinder::PrimeNumberFinder(const PrimeNumberFinder &copy_object) {
 	this->start = copy_object.start;
 	this->end = copy_object.end;
 	this->is_current_number_prime = copy_object.is_current_number_prime;
-	this->my_prime_numbers = new std::vector<int>();
+	this->my_prime_numbers = new std::vector<unsigned int>();
 	this->my_prime_numbers->insert(this->my_prime_numbers->end(), copy_object.my_prime_numbers->begin(),
 		copy_object.my_prime_numbers->end());
 }
 
 PrimeNumberFinder::~PrimeNumberFinder() {
-	my_prime_numbers->clear();
-	if (my_prime_numbers != nullptr)
+	if (my_prime_numbers != nullptr) {
+		my_prime_numbers->clear();
 		delete my_prime_numbers;
+	}
 }
 
-void PrimeNumberFinder::search_prime_number(std::vector<int> *vect, bool *all_done) {
+void PrimeNumberFinder::search_prime_number(std::vector<unsigned int> *vect, bool *all_done) {
 	//начинаем со start
-	int number = start;
+	unsigned int number = start;
 	while (number <= end) {
 		is_current_number_prime = true;
 		for (size_t devider = 2; devider < number; devider++) {
@@ -61,6 +62,10 @@ void PrimeNumberFinder::change_count() {
 	my_lock->unlock();
 }
 
-int PrimeNumberFinder::count = 0;
+void PrimeNumberFinder::reset_count() {
+	count = 0;
+}
+
+unsigned int PrimeNumberFinder::count = 0;
 
 std::mutex* PrimeNumberFinder::my_lock = new std::mutex();

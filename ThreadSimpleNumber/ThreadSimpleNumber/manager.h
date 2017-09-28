@@ -5,11 +5,11 @@
 #define PERIOD 100 //периодичность для искателей
 
 class Manager{
-	int start;
+	unsigned int start;
 	bool all_done;
-	std::vector<int> *all_numbers;
+	std::vector<unsigned int> *all_numbers;
 public:
 	Manager();
 	~Manager();
-	int manage(int);
+	unsigned int manage(unsigned int);
 };

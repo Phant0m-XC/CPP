@@ -4,7 +4,7 @@
 #include "manager.h"
 
 Manager::Manager(){
-	all_numbers = new std::vector<int>();
+	all_numbers = new std::vector<unsigned int>();
 }
 
 Manager::~Manager(){
@@ -14,8 +14,8 @@ Manager::~Manager(){
 	}
 }
 
-int Manager::manage(int serial_number){
-	int result;
+unsigned int Manager::manage(unsigned int serial_number){
+	unsigned int result;
 	start = 1; //начинаем с 1 (в метод будет передана 2)
 	all_done = false;
 
@@ -31,6 +31,6 @@ int Manager::manage(int serial_number){
 
 	result = all_numbers->at(serial_number - 1);
 	all_numbers->clear();
-
+	PrimeNumberFinder::reset_count();
 	return result;
 }
