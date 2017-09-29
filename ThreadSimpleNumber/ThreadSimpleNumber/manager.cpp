@@ -4,7 +4,7 @@
 #include "manager.h"
 
 Manager::Manager(){
-	all_numbers = new std::vector<unsigned int>();
+	all_numbers = new std::vector<u_int>();
 }
 
 Manager::~Manager(){
@@ -14,8 +14,8 @@ Manager::~Manager(){
 	}
 }
 
-unsigned int Manager::manage(unsigned int serial_number){
-	unsigned int result;
+u_int Manager::manage(u_int serial_number){
+	u_int result;
 	start = 1; //начинаем с 1 (в метод будет передана 2)
 	all_done = false;
 

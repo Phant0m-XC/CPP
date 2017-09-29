@@ -6,7 +6,7 @@
 
 int main() {
 	Manager manager;
-	unsigned int result, choice;
+	u_int result, choice;
 	do {
 		std::cout << "Enter a number of prime number (or 0 for exit): ";
 		std::cin >> choice;
