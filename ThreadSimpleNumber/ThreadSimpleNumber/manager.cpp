@@ -1,5 +1,6 @@
 #pragma once
 #include <thread>
+#include <algorithm>
 #include "primeNumberFunction.h"
 #include "manager.h"
 
@@ -14,13 +15,13 @@ Manager::~Manager(){
 	}
 }
 
-u_int Manager::manage(u_int serial_number){
+u_int Manager::manage(u_int serial_number) {
 	u_int result;
 	start = 1; //начинаем с 1 (в метод будет передана 2)
 	all_done = false;
 
 	//запускаем в цикле 2 потока по поиску простых чисел, в каждом потоке поиск проходит по 1 сотне
-	do{
+	do {
 		std::thread thr1(&PrimeNumberFinder::search_prime_number, PrimeNumberFinder(serial_number, start + 1, start + PERIOD), all_numbers, &all_done);
 		start = start + PERIOD;
 		std::thread thr2(&PrimeNumberFinder::search_prime_number, PrimeNumberFinder(serial_number, start + 1, start + PERIOD), all_numbers, &all_done);
@@ -28,7 +29,7 @@ u_int Manager::manage(u_int serial_number){
 		thr1.join();
 		thr2.join();
 	} while (!all_done);
-
+	std::sort(all_numbers->begin(), all_numbers->end(), [](int a, int b) { return a < b; });
 	result = all_numbers->at(serial_number - 1);
 	all_numbers->clear();
 	PrimeNumberFinder::reset_count();
