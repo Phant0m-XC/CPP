@@ -29,7 +29,7 @@ u_int Manager::manage(u_int serial_number) {
 		thr1.join();
 		thr2.join();
 	} while (!all_done);
-	std::sort(all_numbers->begin(), all_numbers->end(), [](int a, int b) { return a < b; });
+	std::sort(all_numbers->begin(), all_numbers->end());
 	result = all_numbers->at(serial_number - 1);
 	all_numbers->clear();
 	PrimeNumberFinder::reset_count();
