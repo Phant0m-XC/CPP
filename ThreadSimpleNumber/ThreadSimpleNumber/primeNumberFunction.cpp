@@ -31,7 +31,7 @@ void PrimeNumberFinder::search_prime_number(std::vector<u_int> *vect, bool *all_
 	while (number <= end) {
 		is_current_number_prime = true;
 		for (u_int devider = 2; devider < number; devider++) {
-			//если число не 2 и делиться без остатка, то оно состовное
+			//если число не 2 и делиться без остатка, то оно составное
 			if (number != 2 && number % devider == 0) {
 				is_current_number_prime = false;
 				break;
