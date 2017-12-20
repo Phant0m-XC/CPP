@@ -6,7 +6,6 @@
 #include <iostream>
 #include <string>
 #include <cctype>
-#include <cstdlib>
 
 int main()
 {

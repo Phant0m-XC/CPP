@@ -1,6 +1,7 @@
 /*Программа по многопоточному (2) поиску простых чисел по их порядковому номеру*/
 
 #include <iostream>
+#include <cstdlib>
 #include <chrono>
 #include "primeNumberFunction.h"
 #include "manager.h"
@@ -20,5 +21,5 @@ int main() {
 		}
 	} while (choice);
 	std::cout << "Exit" << std::endl;
-	return 0;
+	return EXIT_SUCCESS;
 }
