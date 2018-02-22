@@ -26,11 +26,11 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="primeNumberFunction.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="manager.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="primeNumberFunction.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

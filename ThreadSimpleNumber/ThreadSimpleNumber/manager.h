@@ -1,6 +1,6 @@
 #pragma once
 
-#define PERIOD 100 //промежутки для искателей
+#define PERIOD 100 //period
 
 class Manager{
 	u_int start;
