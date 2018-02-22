@@ -1,6 +1,6 @@
 /*
-Программа для поиска суммы чётных и нечётных чисел
-представленных в произвольной строке символов
+Program for calculate sum of EVEN and ODD numbers
+from string of symbols
 */
 
 #include <iostream>
@@ -27,7 +27,7 @@ int main()
 			temp = 0;
 		}
 	}
-	//на случай, если последний символ - цифра
+	//if last symbol is digit
 	if (temp)
 		if (!(temp % 2))
 			sum_even += temp;
