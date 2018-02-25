@@ -17,10 +17,10 @@ Manager::~Manager(){
 
 u_int Manager::manage(u_int serial_number) {
 	u_int result;
-	start = 1; //начинаем с 1 (в метод будет передана 2)
+	start = 1; //start with 1 (in method will be transmitted 2)
 	all_done = false;
 
-	//запускаем в цикле 2 потока по поиску простых чисел, в каждом потоке поиск проходит по 1 сотне
+	//start 2 threads in loop; each thread searches for one hundred
 	do {
 		std::thread thr1(&PrimeNumberFinder::search_prime_number, PrimeNumberFinder(serial_number, start + 1, start + PERIOD), all_numbers, &all_done);
 		start = start + PERIOD;

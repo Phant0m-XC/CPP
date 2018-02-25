@@ -26,35 +26,35 @@ PrimeNumberFinder::~PrimeNumberFinder() {
 }
 
 void PrimeNumberFinder::search_prime_number(std::vector<u_int> *vect, bool *all_done) {
-	//начинаем со start
+	//to start with "start"
 	u_int number = start;
 	while (number <= end) {
 		is_current_number_prime = true;
 		for (u_int devider = 2; devider < number; devider++) {
-			//если число не 2 и делиться без остатка, то оно составное
+			//if number is not 2 and devided, that it is composite number
 			if (number != 2 && number % devider == 0) {
 				is_current_number_prime = false;
 				break;
 			}
 		}
-		//если простое - изменить счётчик, добавить в хранилище
+		//if prime - change count, add to vector
 		if (is_current_number_prime) {
 			change_count();
 			my_prime_numbers->push_back(number);
 		}
 		number++;
 	}
-	//если счётчик равен или превысил искомый порядковый номер
-	//помечаем true дело сделано (для менеджера)
+	//if count equals or exceeded wanted serial number
+	//check true - all done (for manager)
 	my_lock->lock();
 	if (count >= serial_number)
 		*all_done = true;
-	//переписываем найденные числа менеджеру
+	//copy all finded numbers to manager
 	vect->insert(vect->end(), my_prime_numbers->begin(), my_prime_numbers->end());
 	my_lock->unlock();
 }
 
-//увеличение счётчика
+//increase count
 void PrimeNumberFinder::change_count() {
 	my_lock->lock();
 	count++;

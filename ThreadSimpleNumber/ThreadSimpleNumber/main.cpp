@@ -1,4 +1,4 @@
-/*Программа по многопоточному (2) поиску простых чисел по их порядковому номеру*/
+/*Programm for search prime number in 2 threads by his serial number*/
 
 #include <iostream>
 #include <cstdlib>
