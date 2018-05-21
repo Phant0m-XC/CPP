@@ -1,5 +1,6 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
+#include <cstdlib>
 
 int main(int argv, char** argc) {
 	int height = 620;
@@ -16,5 +17,5 @@ int main(int argv, char** argc) {
 	cvWaitKey(0);
 	cvReleaseImage(&hw);
 	cvDestroyWindow("Hello OpenCV");
-	return 0;
+	return EXIT_SUCCESS;
 }
