@@ -1,1 +1,2 @@
-# CPP feedback please on my e-mail: phantom-x # inbox.ru
+# CPP
+Collection different student projetcs on C++
